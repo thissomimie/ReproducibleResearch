@@ -28,7 +28,7 @@ Mean of total number of steps taken per day: `r meansteps`
 
 ## What is the average daily activity pattern?
 ```{r, echo=TRUE}
-library(ggplot2)
+
 averages <- aggregate(x=list(steps=activityData$steps), by=list(interval=activityData$interval),
                       FUN=mean, na.rm=TRUE)
 ggplot(data=averages, aes(x=interval, y=steps)) +
