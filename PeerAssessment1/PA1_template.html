@@ -136,7 +136,7 @@ totalstepsMedian &lt;- median(totalsteps)</code></pre>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
 <div id="create-a-new-factor-variable-in-the-dataset-with-two-levels-weekday-and-weekend-indicating-whether-a-given-date-is-a-weekday-or-weekend-day." class="section level4">
-<h4>1. Create a new factor variable in the dataset with two levels ??? ‘weekday’ and ‘weekend’ indicating whether a given date is a weekday or weekend day.</h4>
+<h4>1. Create a new factor variable in the dataset with two levels-‘weekday’ and ‘weekend’ indicating whether a given date is a weekday or weekend day.</h4>
 <pre class="r"><code>weekday.or.weekend &lt;- function(date) {
     day &lt;- weekdays(date)
     if (day %in% c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;))
