@@ -24,11 +24,11 @@ qplot(total.steps, binwidth=1000, xlab="total number of steps taken each day")
 meansteps <- mean(total.steps, na.rm=TRUE)
 mediansteps <- median(total.steps, na.rm=TRUE)
 ```
-Mean of total number of steps taken per day: `r meansteps`
+* Mean of total number of steps taken per day: `r meansteps`
 
 ## What is the average daily activity pattern?
 ```{r, echo=TRUE}
-library(ggplot2)
+
 averages <- aggregate(x=list(steps=activityData$steps), by=list(interval=activityData$interval),
                       FUN=mean, na.rm=TRUE)
 ggplot(data=averages, aes(x=interval, y=steps)) +
@@ -36,7 +36,8 @@ ggplot(data=averages, aes(x=interval, y=steps)) +
     xlab("5-minute interval") +
     ylab("average number of steps taken")
 ```
-Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+
+* Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 ```{r , echo=TRUE}
 averages[which.max(averages$steps),]
@@ -68,7 +69,7 @@ filled.data$steps <- mapply(fill.value, filled.data$steps, filled.data$interval)
 
 
 
-Make a histrogram of the total number of steps taken each day
+#### Make a histrogram of the total number of steps taken each day
 
 ```{r,echo=TRUE}
 library(ggplot2)
@@ -80,13 +81,13 @@ totalstepsMean <- mean(totalsteps)
 totalstepsMedian <- median(totalsteps)
 ```
 
-Mean (Imputed):`r totalstepsMean`
-Median (Imputed): `r totalstepsMedian`
+* Mean (Imputed):`r totalstepsMean`
+* Median (Imputed): `r totalstepsMedian`
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-1. Create a new factor variable in the dataset with two levels ??? ???weekday??? and ???weekend??? indicating whether a given date is a weekday or weekend day.
+#### 1. Create a new factor variable in the dataset with two levels ??? 'weekday' and 'weekend' indicating whether a given date is a weekday or weekend day.
 
 ```{r, echo=TRUE}
 weekday.or.weekend <- function(date) {
@@ -102,7 +103,7 @@ filled.data$date <- as.Date(filled.data$date)
 filled.data$day <- sapply(filled.data$date, FUN=weekday.or.weekend)
 ```
 
-2. Make a panel plot containing a time series plot
+#### 2. Make a panel plot containing a time series plot
 
 ```{r,echo=TRUE}
 averages <- aggregate(steps ~ interval + day, data=filled.data, mean)
